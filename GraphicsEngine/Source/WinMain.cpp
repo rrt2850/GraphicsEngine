@@ -1,14 +1,30 @@
-#include <windows.h>
-
-#define MAX_NAME_STRING 256
-
-// Get an instance of the entire WinMain program
-#define hInstance() GetModuleHandle(NULL)
+#include "pch.h"
 
 WCHAR WindowClass[MAX_NAME_STRING]; // Make an array of 256 wide characters to hold the class name
 WCHAR WindowTitle[MAX_NAME_STRING]; // Window title array
 int WindowWidth;
 int WindowHeight;
+
+HICON hIcon;
+
+/**
+ * WindowProcess: A function to handle window processes
+ * 
+ * @param hwnd: An instance of the window that's running
+ * @param message: The message type parameter (windows close or windows resize) rn
+ * @param wparam: An argument for the message parameter
+ * @param lparam: An argument for the message parameter
+ */
+LRESULT CALLBACK WindowProcess(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam) {
+	switch (message) {
+		case WM_DESTROY:
+			// If the window gets a message to destroy itself, quit.
+			PostQuitMessage(0);
+			break;
+	}
+
+	return DefWindowProc(hwnd, message, wparam, lparam);
+}
 
 int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, INT) {
 	/* Initialize Global Variables */
@@ -17,6 +33,7 @@ int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, INT) {
 	wcscpy_s(WindowTitle, TEXT("Super Dope Window. Property of Robert"));
 	WindowWidth = 500;
 	WindowHeight = 500;
+	hIcon = LoadIcon(hInstance(), MAKEINTRESOURCE(IDI_MAINICON));
 
 	/* Create Window Class */
 		WNDCLASSEX wcex;
@@ -27,17 +44,17 @@ int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, INT) {
 			wcex.cbClsExtra = 0;
 			wcex.cbWndExtra = 0;
 			wcex.hInstance = hInstance();		// Pass the window class an instance of WinMain as a whole
-
+			
 		// Could change later
 			wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);				// Cursor = basic default cursor
 			wcex.hbrBackground = (HBRUSH)GetStockObject(NULL_BRUSH);	// Background = null = white (overridden by directx)
 
 		// Will change later
-			wcex.hIcon = LoadIcon(0, IDI_APPLICATION);			// top left of window icon
-			wcex.hIconSm = LoadIcon(0, IDI_APPLICATION);		// task bar icon
+			wcex.hIcon = hIcon;									// top left of window icon
+			wcex.hIconSm = hIcon;								// task bar icon
 			wcex.lpszClassName = WindowClass;			 		// Class name
 			wcex.lpszMenuName = nullptr;						// Change when we have a use for menus
-			wcex.lpfnWndProc = DefWindowProc;					// Basic Default window setttings for now
+			wcex.lpfnWndProc = WindowProcess;					// Function for processing the window
 		
 		
 		// Register the class after setting all the variables
@@ -62,7 +79,7 @@ int CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, INT) {
 
 		MSG msg = { 0 };
 
-		// While we don't recieve a quit signal
+		// While we don't receive a quit signal
 		while (msg.message != WM_QUIT) {
 			// If there are window messages, process them
 			if (PeekMessage(&msg, 0, 0, 0, PM_REMOVE)) {
