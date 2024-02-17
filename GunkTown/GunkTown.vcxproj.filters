@@ -1,34 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source">
-      <UniqueIdentifier>{2397d539-b983-4203-bb49-4e6878cb372a}</UniqueIdentifier>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source\Private">
+    <Filter Include="Source">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\pch">
+      <UniqueIdentifier>{b0edd9bd-0e9b-436c-94c8-9586e9da592b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\Public">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Source\pch">
-      <UniqueIdentifier>{6d067a8e-638a-494c-b566-7c05db7d7e53}</UniqueIdentifier>
+    <Filter Include="Source\Private">
+      <UniqueIdentifier>{eb1f1149-1be9-49d0-bd2b-ae08e89342b2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\icons">
-      <UniqueIdentifier>{69ad3a88-a24e-4ffc-8e44-34ada27268f9}</UniqueIdentifier>
+      <UniqueIdentifier>{374959dd-d10a-4333-95dd-647fa777c519}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\pch.cpp">
+      <Filter>Source\pch</Filter>
+    </ClCompile>
     <ClCompile Include="Source\WinMain.cpp">
       <Filter>Source\Private</Filter>
     </ClCompile>
-    <ClCompile Include="Source\pch.cpp">
-      <Filter>Source\pch</Filter>
+    <ClCompile Include="Source\Application.cpp">
+      <Filter>Source\Private</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -36,11 +39,14 @@
       <Filter>Source\pch</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
-      <Filter>Resources</Filter>
+      <Filter>Source\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Application.h">
+      <Filter>Source\Public</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="GraphicsEngine.rc">
+    <ResourceCompile Include="GunkTown.rc">
       <Filter>Resources</Filter>
     </ResourceCompile>
   </ItemGroup>
