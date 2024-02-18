@@ -88,18 +88,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Common\CommandLineArgs.cpp" />
     <ClCompile Include="Source\Common\Logger.cpp" />
     <ClCompile Include="Source\Common\Time.cpp" />
+    <ClCompile Include="Source\Core\Core.cpp" />
+    <ClCompile Include="Source\Core\CoreDefinitions.cpp" />
+    <ClCompile Include="Source\Core\CoreMinimal.cpp" />
     <ClCompile Include="Source\Core\PerGameSettings.cpp" />
+    <ClCompile Include="Source\Engine\GEngine.cpp" />
+    <ClCompile Include="Source\Engine\Simulation.cpp" />
+    <ClCompile Include="Source\Engine\SplashScreen.cpp" />
     <ClCompile Include="Source\GunkEngine.cpp" />
     <ClCompile Include="Source\Platform\Windows32\IApplication.cpp" />
+    <ClCompile Include="Source\Platform\Windows32\SubObject.cpp" />
+    <ClCompile Include="Source\Platform\Windows32\Win32Utils.cpp" />
+    <ClCompile Include="Source\Platform\Windows32\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Common\CommandLineArgs.h" />
     <ClInclude Include="Source\Common\Logger.h" />
     <ClInclude Include="Source\Common\Time.h" />
+    <ClInclude Include="Source\Core\Core.h" />
+    <ClInclude Include="Source\Core\CoreDefinitions.h" />
+    <ClInclude Include="Source\Core\CoreMinimal.h" />
     <ClInclude Include="Source\Core\PerGameSettings.h" />
+    <ClInclude Include="Source\Engine\GEngine.h" />
+    <ClInclude Include="Source\Engine\Simulation.h" />
+    <ClInclude Include="Source\Engine\SplashScreen.h" />
     <ClInclude Include="Source\GunkEngine.h" />
     <ClInclude Include="Source\Platform\Windows32\IApplication.h" />
+    <ClInclude Include="Source\Platform\Windows32\SubObject.h" />
+    <ClInclude Include="Source\Platform\Windows32\Win32Utils.h" />
+    <ClInclude Include="Source\Platform\Windows32\Window.h" />
     <ClInclude Include="Source\Platform\Windows32\WinEntry.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

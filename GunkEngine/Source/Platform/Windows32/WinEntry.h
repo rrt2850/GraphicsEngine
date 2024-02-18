@@ -1,7 +1,9 @@
 #include "GunkEngine.h"
 #include "IApplication.h"
+#include "Common/CommandLineArgs.h"
+#include "Engine/SplashScreen.h"
 
-extern IApplication* EntryApplication();
+extern Win32::IApplication* EntryApplication();
 
 
 /// <summary>
@@ -19,7 +21,15 @@ INT CALLBACK WinMain(HINSTANCE, HINSTANCE, LPSTR, INT) {
 	PerGameSettings GameSettings;		// Initialize settings and create instance
 	EntryApp->SetupPerGameSettings();	// Set up the settings
 
+	CmdLineArgs::ReadArguments();		// Before we initialie the game, what arguments are we sending in?
+
 	Logger logger;						// Initialize a logger for the application so we can communicate
+
+	EntryApp->PreInitialize();
+
+	Logger::PrintLog(L"Logger made, opening splashscreen\n");
+	SplashScreen::Open();				// Open the splash screen while everything loads
+
 	EntryApp->Initialize();				// Initialize the app
 	
 	MSG msg = { 0 };

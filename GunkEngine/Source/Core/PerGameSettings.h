@@ -17,6 +17,7 @@ private:
 	WCHAR m_ShortName[MAX_NAME_STRING];
 	HICON m_MainIcon;
 	WCHAR m_BootTime[MAX_NAME_STRING];
+	WCHAR m_SplashPath[MAX_NAME_STRING];
 
 public:
 	// Getters and setters
@@ -28,6 +29,10 @@ public:
 	// ShortName
 	static WCHAR* ShortName() { return inst->m_ShortName; }
 	static VOID SetShortName(UINT id) { LoadString(hInstance(), id, inst->m_ShortName, MAX_NAME_STRING); }
+
+	// SplashPath
+	static WCHAR* SplashPath() { return inst->m_SplashPath; }
+	static VOID SetSplashPath(UINT id) { LoadString(hInstance(), id, inst->m_SplashPath, MAX_NAME_STRING); }
 
 	// MainIcon
 	static HICON MainIcon() { return inst->m_MainIcon; }

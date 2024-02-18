@@ -1,8 +1,12 @@
 #include "GunkEngine.h"
 #include "IApplication.h"
-/// <summary>
-/// 
-/// </summary>
-IApplication::IApplication()
-{
+
+namespace Win32 {
+	/// <summary>
+	/// 
+	/// </summary>
+	IApplication::IApplication()
+	{
+	}
 }
+

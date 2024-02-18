@@ -24,24 +24,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\pch.cpp">
-      <Filter>Source\pch</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\WinMain.cpp">
-      <Filter>Source\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Application.cpp">
-      <Filter>Source\Private</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Source\pch.h">
-      <Filter>Source\pch</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
-      <Filter>Source\Public</Filter>
+      <Filter>Resources</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Application.h">
+    <ClInclude Include="Source\GunkTown.h">
       <Filter>Source\Public</Filter>
     </ClInclude>
   </ItemGroup>
@@ -54,5 +40,10 @@
     <Image Include="Assets\Icons\doghouse.ico">
       <Filter>Resources\icons</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\GunkTown.cpp">
+      <Filter>Source\Private</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
